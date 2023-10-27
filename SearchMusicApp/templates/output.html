@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="whole">
+    <div class="ribbon6"><h3>Search Music for Karaoke</h3></div>
+    <h2>　楽曲情報　</h2>
+                <div class="flex">
+                    <figure class="image"><img src="{{ track_info['Image'] }}"  width="170" height="170" alt=""></figure>
+                      <p class="text">
+                        アーティスト名　:　 {{ track_info['Artist'] }}<br>
+                        　　　　　曲名　:　 {{ track_info['Track Name'] }}<br>
+                        　　リリース年　:　 {{ track_info['Release Year'] }}<br>
+                        　　　　人気度　:　 {{ track_info['Popularity'] }}<br>
+                        　　　　　キー　:　 {{ track_info['Key'] }}<br>
+                        　　　　テンポ　:　 {{ track_info['Tempo'] }}<br>
+                </div>
+                <div class="button_solid017">
+                    <a href="{{ track_info['URL'] }}" target="_blank">Listen　</a>
+                  </div>
+            </p>
+
+        <h2>　該当曲一覧　</h2>
+        <h3>
+            ▼▼▼{{ track_info['Artist'] }}の「{{ track_info['Track Name'] }}」と似ている曲はこちら▼▼▼
+        </h3>
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 20%;">アーティスト名</th>
+                    <th style="width: 20%;">曲名</th>
+                    <th style="width: 10%;">リリース年</th>
+                    <th style="width: 10%;">人気度</th>
+                    <th style="width: 10%;">キー</th>
+                    <th style="width: 10%;">テンポ</th>
+                    <th style="width: 10%;"> </th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for track in found_tracks %}
+                <tr>
+                    <td style="text-align: center;">{{ track['artist_name'] }}</td>
+                    <td style="text-align: center;">{{ track['track_name'] }}</td>
+                    <td style="text-align: center;">{{ track['release_year'] }}</td>
+                    <td style="text-align: center;">{{ track['popularity'] }}</td>
+                    <td style="text-align: center;">{{ track['key'] }}</td>
+                    <td style="text-align: center;">{{ track['tempo'] }}</td>
+                    <td style="text-align: center;">
+                        <div class="button_solid017">
+                            <a href="{{ track['url'] }}" target="_blank">Listen　</a>
+                        </div>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <br><br>
+        <h3>
+            <a href="/" role="button" style="font-size: 20px;">戻る</a>
+        </h3>
+
+</div>
+{% endblock %}
