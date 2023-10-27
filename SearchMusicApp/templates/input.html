@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<div class="whole">
+    <form action="/" method="POST">
+        <div class="ribbon6"><h3>Search Music for Karaoke</h3></div>
+        
+        <div class="explain">入力した曲のキーとテンポをもとに類似した曲を検索します。あなたの声にあった曲が見つかるかも！<br></div>
+        <h3>検索したい曲を入れてね</h3>
+        <table class="input">
+            <tr style="background: #ffffff;">
+                <td><label for="artist_name">アーティスト名を入力してください</label></td>
+                <td><input type="text" name="artist_name" style="height: 25px;"></td>
+            </tr>
+            <tr style="background: #ffffff;">
+                <td><label for="track_name">曲名を入力してください</label></td>
+                <td><input type="text" name="track_name" style="height: 25px;"></td>
+            </tr>
+        </table>
+        <br>
+        <input type="submit" value="Search" class="button" style="width: 10%;">
+    </form>
+</div>
+{% endblock %}
